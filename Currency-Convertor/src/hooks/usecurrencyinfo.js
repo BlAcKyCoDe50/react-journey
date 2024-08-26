@@ -16,7 +16,7 @@ function useCurrencyInfo(currency) {
           console.error("Currency data not found in response");
         }
       })
-      .catch((e) => console.log("Error:", e));
+      .catch((e) => console.log("Error:"    , e));
 
     // Logging the data (although this will show the old data due to asynchronous nature)
     console.log("Data:", data);
