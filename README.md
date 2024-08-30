@@ -7,4 +7,4 @@ This repository contains all my projects, code snippets, and experiments as I le
 
 ## Password-Generator : [click here](https://socialmedia-passwordgenerator.netlify.app/)
 
-## Currency-Changer : [click here](https://currency-changer-2024.netlify.app/)
+## Currency-Convertor : [click here](https://currency-changer-2024.netlify.app/)
