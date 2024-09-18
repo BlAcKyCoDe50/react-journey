@@ -3,6 +3,9 @@ import './App.css'
 import { Todoprovider } from './contexts/TodoContext'
 import { TodoForm, TodoItem } from './components'
 
+
+
+
 function App() {
  
   const [todos , settodos]  = useState([])
@@ -17,9 +20,7 @@ function App() {
 
   const updateTodo = (id , todo)=>{
     console.log("update todo");
-    settodos((prev)=>{
-      prev.map((prevtodo)=>(prevtodo.id === id ? todo : prevtodo))
-    })  
+    settodos((prev)=>prev.map((prevtodo)=>(prevtodo.id === id ? todo : prevtodo))) 
   }              
 
   const deleteTodo = (id)=>{  
@@ -29,28 +30,49 @@ function App() {
 
   const toggleComplete = (id)=>{
     console.log("togglecomplete todo");
-    settodos((prev)=>{
+    settodos((prev)=>
       prev.map((prevtodo)=>
-        prevtodo.id === id ? {...prevtodo , 
-        completed : !prevtodo.completed} : prevtodo)
-    })            
+        prevtodo.id === id ? {...prevtodo , completed : !prevtodo.completed} : prevtodo)
+    )            
   }
 
   useEffect(()=>{
     const todos = JSON.parse(localStorage.getItem("todos"))
-    if(todos && todos.length > 0)
+    if(todos)
     {
-      settodos(todos)
-    } 
+      try{
+        // const parsedtodos = JSON.parse(todos)
+        if(Array.isArray(todos))
+        {
+          settodos(todos)
+        }
+        else{
+          console.log("Invalid todos format");
+        }
+      }
+      catch(error)
+      {
+        console.log("Failed to parse todos from local storagge");
+      }
+    }
   },[])
 
 useEffect(()=>{ 
-  localStorage.setItem("todos" , JSON.stringify(todos))
+  if(todos.length>0)
+  {
+    localStorage.setItem("todos" , JSON.stringify(todos)) 
+  }
+  else
+  {
+    localStorage.removeItem("todos")
+  }
 },[todos])
 
   return (
     <Todoprovider value={{todos , addTodo , updateTodo , deleteTodo , toggleComplete} }>
-      <div className="bg-[#172842] min-h-screen py-8">
+      <div className="bg-[#172842] min-h-screen py-8" >
+        
+        
                 <div className="w-full max-w-2xl mx-auto shadow-md rounded-lg px-4 py-3 text-white">
                     <h1 className="text-2xl font-bold text-center mb-8 mt-2">Manage Your Todos</h1>
                     <div className="mb-4">
@@ -64,13 +86,15 @@ useEffect(()=>{
                           <div key={todo.id} className='w-full'>
                             <TodoItem todo={todo}/>
                             
-                          </div>
+                          </  div>
                         ))}
                     </div>
                 </div>
             </div>
+            
     </Todoprovider>  
+    
   )
-}
+} 
 
 export default App
