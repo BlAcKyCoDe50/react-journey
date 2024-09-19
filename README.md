@@ -11,4 +11,4 @@ This repository contains all my projects, code snippets, and experiments as I le
 
 ## Personal Todo : [click here](https://vishpersonaltodo.netlify.app/)
 
-## Portfoliotemplate : [click here](ttps://vishvajeet-singh.netlify.app)
+## Portfoliotemplate : [click here](https://vishvajeet-singh.netlify.app/)
