@@ -70,7 +70,13 @@ useEffect(()=>{
 
   return (
     <Todoprovider value={{todos , addTodo , updateTodo , deleteTodo , toggleComplete} }>
-      <div className="bg-[#172842] min-h-screen py-8" >
+      <div className="bg-[#172842] min-h-screen py-8" style={{
+        backgroundImage: `url("https://cdn.pixabay.com/photo/2017/10/26/21/55/wood-2892621_1280.jpg")`,
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        // filter: "blur(2px)",
+      }}> 
+        
         
         
                 <div className="w-full max-w-2xl mx-auto shadow-md rounded-lg px-4 py-3 text-white">

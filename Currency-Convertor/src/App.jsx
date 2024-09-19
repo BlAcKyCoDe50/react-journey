@@ -34,7 +34,7 @@ function App() {
       style={{
         backgroundImage: `url('https://images.pexels.com/photos/3532540/pexels-photo-3532540.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2')`,
         backgroundColor: themeMode === 'dark' ? '#1a1a1a' : '#3c3c3c',
-      }}
+      }}    
     >
 
       <ThemeBtn />
