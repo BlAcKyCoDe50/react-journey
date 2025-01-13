@@ -3,7 +3,7 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 import Todos from './components/Todo'
-import AddTodo from './components/addTodo'
+import AddTodo from './components/AddTodo'
 
 
 function App() {
